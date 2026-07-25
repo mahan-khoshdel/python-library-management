@@ -1,15 +1,12 @@
-# 📚 Python Library Management
-
+# Python Library Management
 A **Library Management System** developed with **Python**, **SQLite**, and **Object-Oriented Programming (OOP)**.
 
-This project demonstrates how to build a simple yet extensible library management system by modeling real-world entities such as books, authors, publishers, members, staff, and rental records. It also provides CRUD (Create, Read, Update, Delete) operations for several database tables using SQLite.
+This project is about creating a simple library management system that can handle a lot of data. It's based on real-life things like books, authors, publishers, members, staff, and rental records. The system lets you add, view, change, and delete information in several database tables using SQLite.
 
-The project is intended as a practical exercise in object-oriented programming, database interaction, and software design using Python.
+This project is intended as a hands-on exercise in object-oriented programming, database interaction, and software design using Python.
 
 ---
-
-# 📑 Table of Contents
-
+# Table of Contents
 - Overview
 - Features
 - Technologies
@@ -30,21 +27,16 @@ The project is intended as a practical exercise in object-oriented programming, 
 - Project Statistics
 - Contributing
 - License
+---
+# Overview
+As the number of books, members, and transactions increases, manually managing library information becomes increasingly difficult.
+
+This project is a simple way to store and manage library information using SQLite. It uses object-oriented programming, which means it represents real-world things as classes in Python. This makes the code easy to understand, fix, and add to.
+
+The system currently supports complete create, read, update, and delete functions for several entities, which serves as a solid base for developing it into a comprehensive library management tool. This foundation allows for future expansion and enhancement of the application's capabilities.
 
 ---
-
-# 📖 Overview
-
-Managing library information manually becomes increasingly difficult as the number of books, members, and transactions grows.
-
-This project provides a simple object-oriented solution that stores and manages library information using SQLite. Every real-world object inside the system is represented as a Python class, making the code easier to understand, maintain, and extend.
-
-The current implementation includes complete CRUD operations for several entities and lays the foundation for expanding the system into a fully functional library management application.
-
----
-
-# ✨ Features
-
+# Features
 - Object-Oriented Programming (OOP)
 - SQLite Database Integration
 - Multiple Related Entities
@@ -55,66 +47,50 @@ The current implementation includes complete CRUD operations for several entitie
 - Database-backed Data Storage
 - Simple Python Implementation
 - Beginner-Friendly Project
-
 ---
-
-# 🛠 Technologies
-
+# Technologies
 | Technology | Description |
 |------------|-------------|
 | Python 3 | Main programming language |
 | SQLite3 | Embedded relational database |
 | Object-Oriented Programming | Software design approach |
 | SQL | Database querying language |
-
 ---
-
-# 🗄 Database
-
+# Database
 The project uses **SQLite** as its database engine.
 
-SQLite is lightweight, portable, and does not require a separate database server, making it an excellent choice for educational and small-scale desktop applications.
+SQLite is lightweight, portable, and does not require a separate database server, making it a great choice for small-scale educational and desktop applications.
 
 Database file:
 
 ```
 library new.db
 ```
-
-The application connects directly to the database using Python's built-in **sqlite3** module.
+This program uses Python's built-in sqlite3 module to connect directly to the database.
 
 ---
-
-# 📂 Project Structure
-
+# Project Structure
 ```
 python-library-management/
 │
 ├── library.py
 ├── library new.db
 ├── README.md
-├── LICENSE
 └── .gitignore
 ```
-
 | File | Description |
 |------|-------------|
 | library.py | Main source code containing all classes and database operations |
 | library new.db | SQLite database |
 | README.md | Project documentation |
-| LICENSE | Project license |
 | .gitignore | Files ignored by Git |
-
 ---
+# System Overview
+The system models a real library environment using object-oriented programming principles.
 
-# 🏛 System Overview
-
-The system models a real-world library environment using object-oriented programming principles.
-
-Each class represents a different entity within the library, while the `Library` class acts as the central manager responsible for interacting with the SQLite database.
+Each class represents a different entity in the library, while the "Library" class acts as a central manager responsible for interacting with the SQLite database.
 
 Current capabilities include:
-
 - Retrieving records from database tables
 - Inserting new records
 - Updating existing records
@@ -122,11 +98,8 @@ Current capabilities include:
 - Managing relationships between library entities
 
 ---
-
-# 📦 Main Components
-
+# Main Components
 The project currently contains the following major components:
-
 | Component | Purpose |
 |-----------|---------|
 | Data Model | Represents real-world library entities |
@@ -134,41 +107,34 @@ The project currently contains the following major components:
 | CRUD Methods | Manage database records |
 | Library Class | Central management class |
 | Entity Classes | Represent books, members, authors, publishers, etc. |
-
 ---
-
-# 🏗 Design Pattern
-
+# Design Pattern
 The project follows a simple object-oriented architecture.
-
 ```
 SQLite Database
-        │
-        ▼
-    Library Class
-        │
- ┌──────┼───────────────┐
- │      │               │
- ▼      ▼               ▼
+│
+▼
+Library Class
+│
+┌──────┼───────────────┐
+│      │               │
+▼      ▼               ▼
 Authors Publishers   Translators
- │
- ▼
+│
+▼
 Books
- │
- ▼
+│
+▼
 Members
- │
- ▼
+│
+▼
 Rent Records
 ```
-
-The separation between entity classes and database methods makes the project easier to maintain and expand in the future.
+The separation between entity classes and database methods makes it easier to maintain and expand the project in the future.
 
 ---
-
-# 🏷 Library Entities
-
-The system is composed of multiple classes that model real-world objects inside a library.
+# Library Entities
+The system is made up of a number of classes, each of which represents a real-life object you'd find in a library.
 
 | Entity | Description |
 |---------|-------------|
@@ -180,72 +146,53 @@ The system is composed of multiple classes that model real-world objects inside 
 | Publisher | Represents publishing companies. |
 | Genre | Represents book categories. |
 | Designer | Represents book designers. |
-| Source | Represents book sources or references. |
+| Source | This is where you can find the books or information you need, like a reference or a citation. |
 | Translator | Represents translators. |
-| Book | Represents books in the library. |
+| Book | This is what we call the items in our library collection. |
 | Rent | Represents borrowing transactions. |
 | Library | Handles all database operations. |
-
 ---
-
-# 📖 Entity Fields
-
+# Entity Fields
 ## Roll
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Unique role identifier |
 | name | str | Role name |
-
 ---
-
 ## Staff
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Staff identifier |
 | name | str | First name |
 | family | str | Last name |
-| national_code | int | National identification number |
+| national_code | int | This is a unique number that identifies a person in a country |
 | roll | Roll | Staff role |
-
 ---
-
 ## Member
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Member identifier |
 | name | str | First name |
 | family | str | Last name |
-| national_code | int | National identification number |
+| national_code | int | This is a unique number that identifies a person in a country |
 | registration_code | int | Membership code |
-| expiration_date | int | Membership expiration date |
-
+| expiration date | number | membership ends on this date |
 ---
-
 ## Author
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Author identifier |
 | name | str | First name |
 | family | str | Last name |
-
 ---
-
 ## Donor
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Donor identifier |
 | name | str | First name |
 | family | str | Last name |
-
 ---
-
 ## Publisher
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Publisher identifier |
@@ -253,50 +200,35 @@ The system is composed of multiple classes that model real-world objects inside 
 | address | str | Company address |
 | phone_number | str | Contact number |
 | email | str | Email address |
-
 ---
-
 ## Genre
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Genre identifier |
 | name | str | Genre name |
-
 ---
-
 ## Designer
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Designer identifier |
 | name | str | First name |
 | family | str | Last name |
-
 ---
-
 ## Source
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Source identifier |
 | name | str | Source name |
 | author_name | str | Source author |
-
 ---
-
 ## Translator
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Translator identifier |
 | name | str | First name |
 | family | str | Last name |
-
 ---
-
 ## Book
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Book identifier |
@@ -313,11 +245,8 @@ The system is composed of multiple classes that model real-world objects inside 
 | genres | list | Book genres |
 | donors | list | Book donors |
 | sources | list | Book sources |
-
 ---
-
 ## Rent
-
 | Field | Type | Description |
 |------|------|-------------|
 | id | int | Rental identifier |
@@ -326,37 +255,28 @@ The system is composed of multiple classes that model real-world objects inside 
 | member | Member | Borrowing member |
 | staff | Staff | Responsible staff |
 | book | Book | Borrowed book |
-
 ---
-
-# ⚙ CRUD Operations
-
-The project currently implements CRUD functionality for several entities stored in the SQLite database.
-
+# CRUD Operations
+This project can currently perform basic operations like creating, reading, updating, and deleting data for several types of information stored in a SQLite database.
 | Entity | Read | Insert | Update | Delete |
 |---------|:---:|:------:|:------:|:------:|
-| Author | ✅ | ✅ | ✅ | ✅ |
-| Publisher | ✅ | ✅ | ✅ | ✅ |
-| Genre | ✅ | ✅ | ✅ | ✅ |
-| Designer | ✅ | ✅ | ✅ | ✅ |
-| Source | ✅ | ✅ | ✅ | ✅ |
-| Translator | ✅ | ✅ | ✅ | ✅ |
-| Roll | ⏳ | ⏳ | ⏳ | ⏳ |
-| Staff | ⏳ | ⏳ | ⏳ | ⏳ |
-| Member | ⏳ | ⏳ | ⏳ | ⏳ |
-| Donor | ⏳ | ⏳ | ⏳ | ⏳ |
-| Book | ⏳ | ⏳ | ⏳ | ⏳ |
-| Rent | ⏳ | ⏳ | ⏳ | ⏳ |
-
-> ✅ Implemented  
+| Author | Approved | Approved | Approved | Approved |
+| Publisher | Yes | Yes | Yes | Yes |
+It seems like the input is solely gibberish and doesn't contain any meaningful text. Therefore, the output will be an empty string.
+| Designer | Yes | Yes | Yes | Yes |
+No text is provided to rewrite.
+| Translator | Approved | Approved | Approved | Approved |
+| Roll | Time | Time | Time | Time |
+| Employees | Time | Time | Time | Time |
+| Member | Time | Time | Time | Time |
+| Donor | Time | Time | Time | Time |
+| Book | Time | Time | Time | Time |
+| Rental Options | Time | Time | Time | Time | It looks like you're trying to create a table for rental options with time slots.
+> ✅ Implemented
 > ⏳ Planned for future implementation
-
 ---
-
-# 🗃 Database Tables
-
-The SQLite database is organized into multiple tables representing different entities.
-
+# Database Tables
+The SQLite database is organized into several tables that represent different entities.
 | Table | Description |
 |--------|-------------|
 | rolls | Staff roles |
@@ -371,13 +291,9 @@ The SQLite database is organized into multiple tables representing different ent
 | translators | Translator information |
 | books | Book information |
 | rents | Rental records |
-
 ---
-
-# 🔧 Methods Overview
-
-The `Library` class provides methods for interacting with the database.
-
+# Methods Overview
+The Library class is a way to work with the database. It has methods that let you do things with the data.
 | Entity | Available Methods |
 |---------|-------------------|
 | Author | get_all(), insert(), update(), delete() |
@@ -387,14 +303,11 @@ The `Library` class provides methods for interacting with the database.
 | Source | get_all(), insert(), update(), delete() |
 | Translator | get_all(), insert(), update(), delete() |
 
-Each CRUD method communicates directly with the SQLite database and returns Python objects representing the corresponding records.
+Each of the CRUD methods talks directly to the SQLite database and then gives back Python objects that show the matching records.
 
 ---
-
-# ⚙ Requirements
-
-Before running this project, make sure the following software is installed on your system.
-
+# Requirements
+Before you start this project, it's really important to have the right software installed on your computer.
 | Software | Version |
 |----------|---------|
 | Python | 3.10 or later |
@@ -403,41 +316,28 @@ Before running this project, make sure the following software is installed on yo
 No external libraries are required.
 
 ---
-
-# 🚀 Installation
-
+# Installation
 Clone the repository:
-
 ```bash
 git clone https://github.com/mahan-khoshdel/python-library-management.git
 ```
-
 Navigate to the project directory:
-
 ```bash
 cd python-library-management
 ```
-
 Make sure the database file exists:
-
 ```
 library new.db
 ```
-
 Run the application:
-
 ```bash
 python library.py
 ```
-
 ---
-
-# ▶ Usage
-
-After running the project, the application connects to the SQLite database and demonstrates different CRUD operations.
+# How to use
+When you start the project, it links up with a SQLite database and shows you different ways to add, remove, and change data.
 
 Examples include:
-
 - Reading all authors
 - Reading all publishers
 - Reading all genres
@@ -448,42 +348,33 @@ Examples include:
 - Updating existing records
 - Deleting records
 
-The returned records are converted into Python objects before being displayed.
+When the results come back, they are changed into a format that Python can understand before being shown.
 
 ---
-
-# 💻 Example Output
-
+# Example Output
 Example of retrieving authors from the database:
-
 ```
 Authors
 
 ID    Name       Family
 
-1     George     Orwell
-2     Jane       Austen
-3     Leo        Tolstoy
+1     Abbas      Maroufi
+2     Simin      Daneshvar
+3     Sadegh     Hedayat
 ```
-
 Example of retrieving publishers:
-
 ```
 Publishers
 
 ID    Name
 
-1     O'Reilly
-2     Penguin
-3     Pearson
+1     jangal
+2     Ghoghnous
+3     Negah
 ```
-
 ---
-
-# 🧠 Learning Objectives
-
+# Learning Objectives
 This project was developed to improve practical knowledge in:
-
 - Object-Oriented Programming (OOP)
 - Python Class Design
 - SQLite Database Programming
@@ -494,13 +385,9 @@ This project was developed to improve practical knowledge in:
 - Data Relationships
 - Python Data Structures
 - Software Design Principles
-
 ---
-
-# 🚧 Future Improvements
-
-The project can be extended with additional features such as:
-
+# Future Improvements
+This project can be expanded with additional features such as:
 - Complete CRUD operations for all entities
 - Book management
 - Member management
@@ -518,11 +405,8 @@ The project can be extended with additional features such as:
 - Parameterized SQL queries
 - Unit testing
 - Documentation generation
-
 ---
-
-# 📊 Project Statistics
-
+# Project Statistics
 | Item | Value |
 |------|------:|
 | Programming Language | Python |
@@ -532,37 +416,29 @@ The project can be extended with additional features such as:
 | Entity Classes | 12 |
 | CRUD Modules | 6 |
 | External Dependencies | None |
-
 ---
-
-# 🤝 Contributing
-
+# Contributing
 Contributions are welcome.
 
-If you have suggestions for improving the project, feel free to:
-
+If you have a suggestion to improve the project, you can use the following:
 1. Fork the repository.
 2. Create a new branch.
 3. Commit your changes.
 4. Push your branch.
 5. Open a Pull Request.
 
-Bug reports and feature requests are also appreciated.
+Bug reports and feature requests are also welcome.
 
 ---
+# License
+This project is released under the MIT License.
 
-# 📄 License
-
-This project is licensed under the MIT License.
-
-Feel free to use, modify, and distribute this project for educational and personal purposes.
+You're allowed to use, change, and share this project for learning or personal use.
 
 ---
-
-# 👨‍💻 Author
-
+# Author
 Developed by **Mahan Khoshdel**
 
 GitHub: https://github.com/mahan-khoshdel
 
-If you found this project helpful, consider giving it a ⭐ on GitHub.
+If this project was helpful to you, consider giving it a star rating ⭐ on GitHub.
