@@ -81,8 +81,10 @@ python-library-management/
 ```
 | File | Description |
 |------|-------------|
-| library.py | Main source code containing all classes and database operations |
-| library new.db | SQLite database |
+| main.py | Entry point of the application. Creates objects and executes CRUD operations. |
+| models.py | Contains all entity classes, the `Library` class, and database-related methods. |
+| library new.db | SQLite database containing the library data. |
+| library new.sql | SQL script used to create the database schema and tables. |
 | README.md | Project documentation |
 | .gitignore | Files ignored by Git |
 ---
