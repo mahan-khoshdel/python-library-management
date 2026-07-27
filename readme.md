@@ -73,10 +73,11 @@ This program uses Python's built-in sqlite3 module to connect directly to the da
 ```
 python-library-management/
 │
-├── library.py
+├── main.py
+├── models.py
 ├── library new.db
-├── README.md
-└── .gitignore
+├── library new.sql
+└── README.md
 ```
 | File | Description |
 |------|-------------|
