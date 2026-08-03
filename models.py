@@ -130,6 +130,9 @@ class Author:
         self.id = id
         self.name = name
         self.family = family
+        
+    def __eq__(self, other):
+        return self.id == other.id
 
 
 class Donor:
@@ -201,6 +204,9 @@ class Publisher:
         self.address = address
         self.phone_number = phone_number
         self.email = email
+        
+    def __eq__(self, other):
+        return self.id == other.id
 
 
 class Genre:
@@ -255,6 +261,9 @@ class Designer:
         self.id = id
         self.name = name
         self.family = family
+        
+    def __eq__(self, other):
+        return self.id == other.id
 
 
 class Source:
@@ -355,7 +364,7 @@ class Book:
     genres: list[Genre] = []
     donors: list[Donor] = []
 
-    def __init__(self, id, title, year_of_publication, price, print_turn, circulation, isbn):
+    def __init__(self, id, title, year_of_publication, price, print_turn, circulation, isbn, publisher=None, designer=None, sources=None, translators=None, authors=None, genres=None, donors=None):
         """
         Initialize a Book instance.
 
@@ -375,6 +384,13 @@ class Book:
         self.print_turn = print_turn
         self.circulation = circulation
         self.isbn = isbn
+        self.publisher = publisher
+        self.designer = designer
+        self.sources = sources
+        self.translators = translators
+        self.authors = authors
+        self.genres = genres
+        self.donors = donors
 
 
 class Rent:
@@ -537,12 +553,12 @@ class Library:
         cn.commit()
 
     # def get_all_donors(self):
-        #"""
-        #Retrieve all donors from the database.
+        # """
+        # Retrieve all donors from the database.
 #
-        #Returns:
-            #list[Donor]: A list containing all donors stored in the database.
-        #"""      
+        # Returns:
+        # list[Donor]: A list containing all donors stored in the database.
+        # """
         # cn = sqlite3.connect("library new.db")
         # cr = cn.cursor()
         # s = "select * from donors"
@@ -834,30 +850,37 @@ class Library:
         cr.execute(s)
         cn.commit()
 
-    # def get_all_books(self):
-        #"""
-        #Retrieve all books from the database.
+    def get_all_books(self):
+        """
+        Retrieve all books from the database.
 
-        #Returns:
-            #list[Book]: A list containing all books stored in the database.
-        #"""
-        # cn = sqlite3.connect("library new.db")
-        # cr = cn.cursor()
-        # s = "select * from books"
-        # result = list(cr.execute(s))
-        # books = []
-        # for book in result:
-        # books.append(Book(book[0], book[1], book[2], book[3], book[4], book[5], book[6],
-        # book[7], book[8], book[9], book[10], book[11], book[12], book[13]))
-        # return books
+        Returns:
+            list[Book]: A list containing all books stored in the database.
+        """
+        cn = sqlite3.connect("library new.db")
+        cr = cn.cursor()
+        s = "select * from books"
+        result = list(cr.execute(s))
+        books = []
+        publishers = self.get_all_publishers()
+        designers = self.get_all_designers()
+        for book in result:
+            b = Book(book[0], book[1], book[2],
+                     book[3], book[4], book[5], book[6])
+            p = Publisher(book[7], "", "", 0, "")
+            b.publisher = publishers[publishers.index(p)]
+            d = Designer(book[8], "", "")
+            b.designer = designers[designers.index(d)]
+            books.append(b)
+        return books
 
     # def get_all_rents(self):
-        #"""
-        #Retrieve all rents from the database.
+        # """
+        # Retrieve all rents from the database.
 
-        #Returns:
-            #list[Rent]: A list containing all rental records stored in the database.
-        #"""
+        # Returns:
+        # list[Rent]: A list containing all rental records stored in the database.
+        # """
         # cn = sqlite3.connect("library new.db")
         # cr = cn.cursor()
         # s = "select * from rents"
